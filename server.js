@@ -21,6 +21,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/auth')); 
 // api routes must be before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('api/cart', require('./routes/api/cart'));
+app.use('/api/products', require('./routes/api/products'));
+app.use('api/reviews', require('./routes/api/reviews'));
 // "catch all" route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
