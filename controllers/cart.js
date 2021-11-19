@@ -10,7 +10,7 @@ async function addItemToCart(req, res) {
 
     try {
         await Cart.findOne({ user: req.user._id }).exec((error, cart) => {
-            if (error) return re.status(400).json({ error })
+            if (error) res.status(400).json({ error })
             if (cart) {
 
                 const totalCartItemQuantity = req.body.cartItems.quantity
@@ -24,18 +24,18 @@ async function addItemToCart(req, res) {
                             quantity: item.quantity + totalCartItemQuantity
                         }
                     }).exec((updateCartError, updatedCart) => {
-                        if (updateCartError) { return res.status(400).json({ updateCartError }) }
-                        if (updatedCart) { return res.status(201).json({ cart: updatedCart }); }
+                        if (updateCartError) { res.status(400).json({ updateCartError }) }
+                        if (updatedCart) { res.status(201).json({ cart: updatedCart }); }
                     })
 
                 } else {
                     Cart.findOneAndUpdate({ user: req.user._id }, {
                         '$push': { 'cartItems': req.body.cartItems }
                     }).exec((updateCartError, updatedCart) => {
-                        if (updateCartError) { return res.status(400).json({ updateCartError }) }
-                        if (updatedCart) { return res.status(201).json({ cart: updatedCart }); }
+                        if (updateCartError) { res.status(400).json({ updateCartError }) }
+                        if (updatedCart) { res.status(201).json({ cart: updatedCart }); }
                     })
-                    return res.staus(200).json({ message: cart })
+                     res.status(200).json({ message: cart })
                 }
 
             } else {
@@ -43,9 +43,9 @@ async function addItemToCart(req, res) {
                     user: req.user._id,
                     cartItems: [req.body.cartItems]
                 })
-                newCart.save((newCartError, newCart) => {
-                    if (newCartError) { return res.status(400).json({ newCartError }) }
-                    if (newCart) { return res.status(201).json({ newCart }); }
+                newCart.save((newCartError, c) => {
+                    if (newCartError) { res.status(400).json({ newCartError }) }
+                    if (c) { res.status(201).json({ cartData: c }); }
                 });
             }
         })

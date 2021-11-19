@@ -35,8 +35,7 @@ module.exports = {
           description: description.trim()
         }
         const product = await Product.create(newProduct);
-        await product.populate('createdBy').exec()
-        res.status(201).json({ product });
+        res.status(201).json({ data: product });
         
       } catch (error) {
         console.log(error)
