@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Row, Col, Container} from 'react-bootstrap'
 import Product from '../../components/Product/Product'
 
 export default function ProductIndex() {
-    const products = [{
+
+  const [productName, setProductName] = useState('')
+  const [quantity, setQuantity] = useState('')
+  const [price, setPrice] = useState('')
+  const [description, setDescription] = useState('')
+  const [productImages, setProductImages] = useState([])
+
+
+    const product = [{
         _id: 1,
         name: ['Bob'],
         age: 3.5,
@@ -35,11 +43,9 @@ export default function ProductIndex() {
     <Container className="text-center py">
       <h1>Latest products</h1>
       <Row>
-        {products.map((product) => (
-          <Col key={product._id} sm={12}>
+          <Col key={product._id} md={12}>
             <Product product={product} />
           </Col>
-        ))}
       </Row>
     </Container>
   );

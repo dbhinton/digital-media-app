@@ -1,9 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const cartCtrl = require('../../controllers/reviews');
+var router = require('express').Router()
+const reviewsCtrl = require('../../controllers/reviews')
+
+router.post('/products/:id/reviews', isAuthorized, reviewsCtrl.create)
+router.put('/products/:pid/reviews/:rid',isAuthorized, reviewsCtrl.updateReview)
+router.delete('/products/:pid/reviews/:rid',isAuthorized, reviewsCtrl.deleteReview)
 
 
-router.post('/user/cart/reviews', isAuthorized, cartCtrl.addComment);
 
 function isAuthorized(req, res, next){
 	if(req.user){

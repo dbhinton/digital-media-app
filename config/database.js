@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb://127.0.0.1:27017/hunts-photo", // < replace with your database name!
+  process.env.DATABASE_URL, // < replace with your database name!
 )
 
 const db = mongoose.connection;

@@ -14,7 +14,7 @@ module.exports = {
 
 async function signup(req, res) {
   console.log(req.body, req.file, " <req.body, req.file in our signup, because we have multer");
-  console.log(req.file)
+
   // generate a unique fileName
   const filePath = `${uuidv4()}/${req.file.originalname}`;
   // generate our options object for aws
@@ -47,7 +47,7 @@ async function login(req, res) {
   try {
     const user = await User.findOne({email: req.body.email});
    
-    if (!user) return res.status(401).json({err: 'bad credentials'});
+    if (user.role !== 'admin') return res.status(401).json({err: 'bad credentials'});
     user.comparePassword(req.body.password, (err, isMatch) => {
       
       if (isMatch) {
@@ -69,7 +69,7 @@ async function profile(req, res){
     // findOne finds first match, its useful to have unique usernames!
     const user = await User.findOne({username: req.params.username})
     // Then find all the products that belong to that user
-    if(!user) return res.status(404).json({err: 'User not found'})
+    if(user.role !== 'admin') return res.status(404).json({err: 'Not an admin'})
 
     const products = await Product.find({user: user._id}).populate("user").exec();
     console.log(products, ' this products')

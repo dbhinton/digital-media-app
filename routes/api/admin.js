@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const usersCtrl = require('../../controllers/users');
+const adminCtrl = require('../../controllers/admin');
 const multer = require('multer')
 const upload = multer()
 
 
 /*---------- Public Routes ----------*/
-router.post('/signup', upload.single('photo'), usersCtrl.signup);
-router.post('/login', usersCtrl.login);
+router.post('/admin/signup', upload.single('photo'), adminCtrl.signup);
+router.post('/admin/login', adminCtrl.login);
+router.get('/:username', adminCtrl.profile);
 
 
 /*---------- Protected Routes ----------*/

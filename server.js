@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
+const bodyParser = require('body-parser');
 
 require('./config/database');
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/auth')); 
 // api routes must be before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/admin', require('./routes/api/admin'));
 app.use('api/cart', require('./routes/api/cart'));
 app.use('/api/products', require('./routes/api/products'));
 app.use('api/reviews', require('./routes/api/reviews'));

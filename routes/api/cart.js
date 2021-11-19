@@ -5,7 +5,8 @@ const multer = require('multer')
 const upload = multer()
 
 
-router.post('/user/cart/addtocart', isAuthorized, cartCtrl.addItemToCart);
+router.post('/', isAuthorized, cartCtrl.addItemToCart);
+
 
 function isAuthorized(req, res, next){
 	if(req.user){
