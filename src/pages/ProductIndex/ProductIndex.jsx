@@ -1,51 +1,61 @@
-import React, {useState} from 'react';
-import { Row, Col, Container} from 'react-bootstrap'
-import Product from '../../components/Product/Product'
+import React, { useState, useEffect } from "react";
+import { Col, Row, Container, Card } from "react-bootstrap";
+import * as productApi from "../../utils/productApi";
+import Product from "../../components/Product/Product";
+import { Link } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 export default function ProductIndex() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const [productName, setProductName] = useState('')
-  const [quantity, setQuantity] = useState('')
-  const [price, setPrice] = useState('')
-  const [description, setDescription] = useState('')
-  const [productImages, setProductImages] = useState([])
+  async function handleAddProduct(product) {
+    try {
+      setLoading(true);
+      const data = await productApi.create(product);
+      console.log(data, "this is response from the server in handleAddProduct");
 
+      setProducts([data.product, ...products]);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      console.log(err);
+    }
+  }
 
-    const product = [{
-        _id: 1,
-        name: ['Bob'],
-        age: 3.5,
-        gender: 'male',
-        interests: ['music', 'skiing'],
-      },
-      {
-        _id: 2,
-        name: ['Bo'],
-        age: 2,
-        gender: 'male',
-        interests: ['musi'],
-      },
-      {
-        _id: 3,
-        name: ['ob'],
-        age: 4,
-        gender: 'male',
-        interests: ['music', 'skiing'],
-      },
-      {
-        _id: 4,
-        name: ['B'],
-        age: .5,
-        gender: 'male',
-        interests: ['music', 'skiing'],
-      }];
+  async function getProducts(showLoading) {
+    try {
+      showLoading ? setLoading(true) : setLoading(false);
+      const data = await productApi.getAll();
+      console.log(data);
+      console.log(data, "these are all the prods");
+      setProducts([data.products]);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      console.log(err, "this is the error from get all Products function");
+    }
+  }
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  if (error) {
+    return <ErrorMessage error={error} />;
+  }
+
+  if (loading) {
+    return <Loader />;
+  }
+  console.log(products, "products console.log");
   return (
     <Container className="text-center py">
-      <h1>Latest products</h1>
+      <h1>All Products</h1>
       <Row>
-          <Col key={product._id} md={12}>
-            <Product product={product} />
-          </Col>
+        <Product products={products}/>
       </Row>
     </Container>
   );

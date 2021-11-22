@@ -1,6 +1,6 @@
 import tokenService from "./tokenService";
 
-const BASE_URL = "/api/proucts/";
+const BASE_URL = "/api/products";
 
 export function create(product){
 	return fetch(BASE_URL, {
@@ -27,6 +27,7 @@ export function getAll() {
 	.then(res => {
 		// Valid login if we have a status of 2xx (res.ok)
 		if (res.ok) return res.json();
-		throw new Error('bad Credentials');
+		console.log(res, 'response from get all prod')
+		throw new Error('getAll function in product api couldnt fetch products');
 	  })
   }

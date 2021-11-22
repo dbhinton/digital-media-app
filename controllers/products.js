@@ -28,7 +28,7 @@ module.exports = {
 
         const { name, price, description } = req.body
         const newProduct = {
-          photoURL: data.Location,
+          photoUrl: data.Location,
           createdBy: req.user, 
           name: name.trim(), 
           price: price, 
@@ -49,9 +49,12 @@ module.exports = {
           // this populates the user when you find the products
           // so you'll have access to the users information
           // when you fetch teh products
-          const products = await Product.find({}).populate("user").exec();
+          const products = await Product.find({}).populate("createdBy").exec();
+          console.log('200 productindex')
           res.status(200).json({ products: products });
+          console.log(products, 'these are products')
         } catch (err) {
+          console.log('error message in produt index')
           res.status(400).json({ err });
         }
       }

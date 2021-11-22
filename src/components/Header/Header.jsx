@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from 'react-router-dom'
 
 
-export default function Header() {
+export default function Header({user, handleLogout}) {
   return (
     <header>
       {/* <Navbar bg="light" expand="lg">
@@ -35,7 +35,9 @@ export default function Header() {
             <Nav className="ml-auto">
               <Nav.Link as={NavLink} to='/products' exact>Products</Nav.Link>
               <Nav.Link as={NavLink} to='/login' exact><i className="fas fa-user"></i> Login</Nav.Link>
+              <Nav.Link as={NavLink} to='' onClick={handleLogout}>Logout</Nav.Link>
               <Nav.Link as={NavLink} to='/cart' exact><i className="fas fa-shopping-cart"></i> Cart</Nav.Link>
+              <Nav.Link as={NavLink} to={`/${user}`}></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

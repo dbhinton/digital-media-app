@@ -58,8 +58,8 @@ export default function ProductDetail({ match }) {
   console.log(product, "<--this is product");
   return (
     <>
-      <div>{product.name}</div>
-      <Row>
+      {/* <div>{product.name}</div> */}
+      {/* <Row>
         <Col md={6}>
           <Image src={product.name} alt={product.name} fluid></Image>
         </Col>
@@ -129,7 +129,7 @@ export default function ProductDetail({ match }) {
             </ListGroup.Item>
           </ListGroup>
         </Col>
-      </Row>
+      </Row> */}
     </>
   );
 }

@@ -1,26 +1,32 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Col, Container, Image } from 'react-bootstrap'
 import Rating from '../Rating/Rating'
 import { Link } from 'react-router-dom'
 
 
-export default function Product({ product }) {
+export default function Product({ products }) {
+    console.log(products)
     return (
-        <Card className='my-3 p-3'>
-            <Link to= {`/product/${product._id}`}>
-            <Card.Img src={product.name} variant="top" />
-            </Link>
-            <Card.Body>
-            <Link to= {`/product/${product._id}`}>
-            <Card.Title as='h3' className="my-3">{product.name}</Card.Title>
-            </Link>
-            <Card.Text as='div'>{product.age}</Card.Text>
-            <Card.Text>
-                <Rating rating={product.age} numReviews= {`${product.age} reviews`} starColor= 'red'/>
-            </Card.Text>
-            </Card.Body>
-
-        </Card>
+        <>
+        <Container></Container>
+        {products.map((product) => (
+            <Col key={product._id} sm={12}>
+              <Card className="my-3 p-3">
+                <Link to={`/product/${product._id}`}>
+                  <Image src={product.photoUrl} variant="top" />
+                </Link>
+                <Link to={`/product/${product._id}`}>
+                <Card.Title>
+                  <Card.Text as="h1">{product.name}</Card.Text>
+                </Card.Title>
+                </Link>
+                <Card.Body>
+                  <Card.Text as="div">${product.price}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+          </>
     )
 }
 

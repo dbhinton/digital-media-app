@@ -3,7 +3,7 @@ import tokenService from "./tokenService";
 const BASE_URL = "/api/";
 
 export function create(id) {
-  return fetch(`${BASE_URL}posts/${id}/likes`, {
+  return fetch(`${BASE_URL}products/${id}/reviews`, {
     method: "POST",
     headers: {
       Authorization: "Bearer " + tokenService.getToken(),

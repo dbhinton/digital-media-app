@@ -2,8 +2,10 @@ const mongoose = require('mongoose')
 
 
 const productSchema = new mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     name: {
         type: String,
+        uppercase: true,
         required: true,
     },
     price: {
@@ -14,15 +16,14 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    photoURL: {
+    photoUrl: {
         type: String, 
         required: true
     },
     createdBy: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User', 
-        required: true 
-    },
+    }
 
 
 },{timestamps: true})

@@ -4,10 +4,12 @@ import './App.css';
 import Layout from "../Layout/Layout";
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+import Admin from '../Admin/Admin';
 import userService from "../../utils/userService";
 import Home from '../Home/Home'
 import ProductIndex from '../ProductIndex/ProductIndex'
 import ProductDetail from '../ProductDetail/ProductDetail'
+import Cart from '../Cart/Cart'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../css/bootstrap.min.css'
 
@@ -36,8 +38,11 @@ function App() {
           <Route path="/login" element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
           
           <Route path="/signup" element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>} />
-          <Route path='products' element={<ProductIndex />}/>
+          <Route path='/admin' element={<Admin />}/>
+          <Route path='/products' element={<ProductIndex />}/>
           <Route path = "/product/:id" element={<ProductDetail />}/>
+          <Route path = "/cart" element={<Cart />}/>
+          <Route path = "/cart/:id" element={<Cart />}/>
       </Route>
       </Routes>
   );

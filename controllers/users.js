@@ -14,7 +14,6 @@ module.exports = {
 
 async function signup(req, res) {
   console.log(req.body, req.file, " <req.body, req.file in our signup, because we have multer");
-  console.log(req.file)
   // generate a unique fileName
   const filePath = `${uuidv4()}/${req.file.originalname}`;
   // generate our options object for aws
