@@ -1,6 +1,9 @@
 {
   "name": "jwt-boilerplate",
   "version": "0.1.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "private": true,
   "dependencies": {
     "@aws-sdk/client-s3": "^3.41.0",
