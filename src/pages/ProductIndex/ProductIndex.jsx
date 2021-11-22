@@ -1,43 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container, Card } from "react-bootstrap";
-import * as productApi from "../../utils/productApi";
 import Product from "../../components/Product/Product";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
-export default function ProductIndex() {
+export default function ProductIndex({getProducts}) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  async function handleAddProduct(product) {
-    try {
-      setLoading(true);
-      const data = await productApi.create(product);
-      console.log(data, "this is response from the server in handleAddProduct");
-
-      setProducts([data.product, ...products]);
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      console.log(err);
-    }
-  }
-
-  async function getProducts(showLoading) {
-    try {
-      showLoading ? setLoading(true) : setLoading(false);
-      const data = await productApi.getAll();
-      console.log(data);
-      console.log(data, "these are all the prods");
-      setProducts([data.products]);
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      console.log(err, "this is the error from get all Products function");
-    }
-  }
 
   useEffect(() => {
     getProducts();
@@ -55,7 +26,7 @@ export default function ProductIndex() {
     <Container className="text-center py">
       <h1>All Products</h1>
       <Row>
-        <Product products={products}/>
+        <Product smallScreen={12} medSreen={12} largeScreen={12} products={products}/>
       </Row>
     </Container>
   );

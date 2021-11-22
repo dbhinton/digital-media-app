@@ -6,24 +6,12 @@ import { Link } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
-export default function ProductIndex() {
+export default function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  async function handleAddProduct(product) {
-    try {
-      setLoading(true);
-      const data = await productApi.create(product);
-      console.log(data, "this is response from the server in handleAddProduct");
 
-      setProducts([data.product, ...products]);
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      console.log(err);
-    }
-  }
 
   async function getProducts(showLoading) {
     try {
@@ -52,10 +40,10 @@ export default function ProductIndex() {
   }
   console.log(products, "products console.log");
   return (
-    <Container className="text-center py">
+    <Container className="text-center py" >
       <h1>All Products</h1>
       <Row>
-        <Product products={products}/>
+        <Product smallScreen={12} medSreen={8} largeScreen={6} products={products}/>
       </Row>
     </Container>
   );
