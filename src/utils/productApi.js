@@ -17,6 +17,19 @@ export function create(product){
 	  })
 }
 
+export function deleteProduct(id) {
+	return fetch(`${BASE_URL}likes/${id}`, {
+	  method: "DELETE",
+	  body: product,
+	  headers: {
+		Authorization: "Bearer " + tokenService.getToken(),
+	  },
+	}).then((res) => {
+	  if (res.ok) return res.json();
+	  throw new Error("Login to remove a like");
+	});
+  }
+
 export function getAll() {
 	return fetch(BASE_URL, {
 	  method: 'GET',

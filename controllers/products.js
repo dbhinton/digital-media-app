@@ -44,6 +44,13 @@ module.exports = {
     });
 }
 
+
+function deleteProduct(req, res){
+  Product.findById()
+
+}
+
+
     async function productIndex(req, res) {
         try {
           // this populates the user when you find the products
