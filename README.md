@@ -3,7 +3,7 @@
 ## Planning:
 ### [Trello](https://trello.com/b/4LwTrnYk/gearshare)<br />
 ### ERD
-![alt text](https://i.imgur.com/bVQDQOs.png)
+![alt text](https://i.imgur.com/k3FqYSR.png)
 
 
 ### WireFrame
