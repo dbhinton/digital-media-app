@@ -1,5 +1,5 @@
 # Hunts Photo
-### GearShare is an e-commerce web application where buyers and sellers exchange digital media equipment. The inspiration actually came from my friend [Rohan](https://www.instagram.com/rohan.jpg/),  who's a multidisciplinary artist( Music Producer, 3D Animator, and Graphic Designer) created the idea. I was impressed with his motto of experimentation without long term commitment and developed a strong desire to bring it to life. 
+### Hunt's Photo & Video is New England's Imaging Equipment Leader.
 ## Planning:
 ### [Trello](https://trello.com/b/4LwTrnYk/gearshare)<br />
 ### ERD
