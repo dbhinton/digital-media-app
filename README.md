@@ -8,7 +8,7 @@
 
 ### WireFrame
 ![alt text](https://i.imgur.com/DmmxaXY.png)
-![alt text](https://i.imgur.com/nobnG2H.jpg)
+![alt text](https://i.imgur.com/3rgvEbz.jpg)
 
 ![alt text](https://i.imgur.com/fq2Oge6.png)
 ## Link to Web App
