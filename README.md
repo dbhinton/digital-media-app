@@ -1,7 +1,7 @@
 # Hunts Photo
 ### Hunt's Photo & Video is New England's Imaging Equipment Leader.
 ## Planning:
-### [Trello](https://trello.com/b/4LwTrnYk/gearshare)<br />
+### [Trello](https://trello.com/b/OYJjwxKB/project-4)<br />
 ### ERD
 ![alt text](https://i.imgur.com/k3FqYSR.png)
 
