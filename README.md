@@ -10,7 +10,7 @@
 ![alt text](https://i.imgur.com/DmmxaXY.png)
 ![alt text](https://i.imgur.com/nobnG2H.jpg)
 
-![alt text](https://i.imgur.com/mSTM9Gy.jpg)
+![alt text](https://i.imgur.com/fq2Oge6.png)
 ## Link to Web App
 ### [GearShare](https://gearshare-app.herokuapp.com/)<br />
 ### Tech used: MongoDB, Node.js, Express.js, Mongoose, EJS, CSS, Heroku, Photoshop
