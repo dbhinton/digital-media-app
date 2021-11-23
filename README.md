@@ -13,7 +13,7 @@
 ![alt text](https://i.imgur.com/fq2Oge6.png)
 ## Link to Web App
 ### [Hunts-Photo](https://hunts-photo.herokuapp.com//)<br />
-### Tech used: MongoDB, Node.js, Express.js, Mongoose, EJS, CSS, Heroku, Photoshop
+### Tech used: React.js, Bootstrap, MongoDB, Node.js, Express.js, Mongoose, EJS, CSS, Heroku, Photoshop
 ### Future Enhancements: 
 * Add Buyer, Seller, Cart, Review Functionality
 * Fix CSS
