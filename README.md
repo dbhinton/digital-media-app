@@ -12,11 +12,10 @@
 
 ![alt text](https://i.imgur.com/fq2Oge6.png)
 ## Link to Web App
-### [GearShare](https://gearshare-app.herokuapp.com/)<br />
+### [Hunts-Photo](https://hunts-photo.herokuapp.com//)<br />
 ### Tech used: MongoDB, Node.js, Express.js, Mongoose, EJS, CSS, Heroku, Photoshop
 ### Future Enhancements: 
-* Add Buyer, Seller, Cart Functionality
+* Add Buyer, Seller, Cart, Review Functionality
 * Fix CSS
-* Fix Reviews
 * Ability to Accept Payments
 * Add Geospatial functionality so users can find other users that are near them
