@@ -8,7 +8,7 @@ export default function Admin() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  async function handleAddProduct(product) {
+  async function handleCreateProduct(product) {
     try {
       setLoading(true);
       const data = await productApi.create(product);
@@ -28,7 +28,7 @@ export default function Admin() {
     >
       <>
         <h1>Welcome to Admin Dashboard</h1>
-        <AdminForm />
+        <AdminForm handleCreateProduct={handleCreateProduct}/>
       </>
     </Container>
   );

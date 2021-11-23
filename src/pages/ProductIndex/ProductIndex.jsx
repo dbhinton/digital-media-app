@@ -10,9 +10,7 @@ export default function ProductIndex({getProducts}) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+
 
   if (error) {
     return <ErrorMessage error={error} />;

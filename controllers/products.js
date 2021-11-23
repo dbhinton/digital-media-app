@@ -8,6 +8,7 @@ const BUCKET_NAME = process.env.BUCKET_NAME;
 module.exports = {
     createProduct,
     productIndex,
+    deleteProduct
   };
 
 
@@ -30,9 +31,9 @@ module.exports = {
         const newProduct = {
           photoUrl: data.Location,
           createdBy: req.user, 
-          name: name.trim(), 
+          name: name,
           price: price, 
-          description: description.trim()
+          description: description
         }
         const product = await Product.create(newProduct);
         res.status(201).json({ data: product });
@@ -45,11 +46,15 @@ module.exports = {
 }
 
 
-function deleteProduct(req, res){
-  Product.findById()
-
+async function deleteProduct(req, res){
+  try{
+    await Product.deleteOne({_id: req.body.id})
+    res.status(200).json({data: true})
+  }catch(error){
+    console.log(error)
+    res.status(400).json(error);
+  }
 }
-
 
     async function productIndex(req, res) {
         try {
