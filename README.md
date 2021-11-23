@@ -17,5 +17,5 @@
 ### Future Enhancements: 
 * Add Buyer, Seller, Cart, Review Functionality
 * Fix CSS
-* Ability to Accept Payments
+* Ability to Accept Payments (Paypal API)
 * Add Geospatial functionality so users can find other users that are near them
