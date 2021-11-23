@@ -18,9 +18,9 @@ export function create(product){
 }
 
 export function deleteProduct(id) {
-	return fetch(`${BASE_URL}/${id}`, {
-	  method: "POST",
-	  body: {id},
+	return fetch(BASE_URL, {
+	  method: "DELETE",
+	  body: id,
 	  headers: {
 		Authorization: "Bearer " + tokenService.getToken(),
 	  },

@@ -28,7 +28,7 @@ export default function ProductDetail({ products, error, loading, isAdmin, delet
   }
 
   function clickHandler(){
-    deleteProd(id)
+    deleteProd()
     // navigate("/");
 
   }
@@ -126,7 +126,7 @@ export default function ProductDetail({ products, error, loading, isAdmin, delet
                   className="btn-block"
                   type="button"
                   disabled={product.price === 0}
-                  onClick={clickHandler()}
+                  onClick={clickHandler}
                 >
                   Delete
                 </Button>
