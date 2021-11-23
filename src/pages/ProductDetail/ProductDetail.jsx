@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function ProductDetail({ products, error, loading, isAdmin, deleteProd }) {
   const { id } = useParams();
+  console.log(id)
   const [currentProduct, setCurrentProduct] = useState({});
   const [quantity, setQuantity] = useState(0);
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ export default function ProductDetail({ products, error, loading, isAdmin, delet
           <ListGroup variant="flush">
             <ListGroup.Item>
               <Row>
-                <Col>Price:</Col>
+                <Col>Name:</Col>
                 <Col>
                   <strong>{product.name}</strong>
                 </Col>
@@ -80,7 +81,7 @@ export default function ProductDetail({ products, error, loading, isAdmin, delet
             </ListGroup.Item>
             <ListGroup.Item>
               <Row>
-                <Col>Quantity:</Col>
+                <Col>Price:</Col>
                 <Col>
                   $<strong>{product.price}</strong>
                 </Col>

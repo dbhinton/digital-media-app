@@ -48,7 +48,8 @@ module.exports = {
 
 async function deleteProduct(req, res){
   try{
-    await Product.deleteOne({_id: req.body.id})
+    console.log(req.params.id)
+    await Product.deleteOne({'id': req.params.id})
     res.status(200).json({data: true})
   }catch(error){
     console.log(error)
@@ -64,7 +65,6 @@ async function deleteProduct(req, res){
           const products = await Product.find({}).populate("createdBy").exec();
           console.log('200 productindex')
           res.status(200).json({ products: products });
-          console.log(products, 'these are products')
         } catch (err) {
           console.log('error message in produt index')
           res.status(400).json({ err });
